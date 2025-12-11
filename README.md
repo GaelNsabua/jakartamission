@@ -2,11 +2,11 @@
 
 Application web Jakarta EE pour explorer et partager des lieux touristiques en Indonésie.
 
-## 📋 Description
+## Description
 
 Jakarta Mission est une application web moderne développée avec Jakarta EE 10 qui permet aux utilisateurs de découvrir l'Indonésie, d'ajouter leurs lieux préférés et d'explorer la richesse culturelle de l'archipel indonésien.
 
-## ✨ Fonctionnalités
+## Fonctionnalités
 
 - **Page d'accueil** : Hero section avec présentation de l'Indonésie
 - **Gestion des lieux** : Ajouter des lieux touristiques avec nom, description, latitude et longitude
@@ -14,7 +14,7 @@ Jakarta Mission est une application web moderne développée avec Jakarta EE 10 
 - **À propos** : Informations détaillées sur l'Indonésie (géographie, culture, économie)
 - **Design moderne** : Interface responsive avec Tailwind CSS et la police Lobster
 
-## 🛠️ Technologies
+## Technologies
 
 - **Jakarta EE 10** (Jakarta Faces, CDI, Persistence)
 - **Java**
@@ -23,7 +23,7 @@ Jakarta Mission est une application web moderne développée avec Jakarta EE 10 
 - **Google Fonts** (Lobster)
 - **Unsplash** pour les images
 
-## 📁 Structure du Projet
+## Structure du Projet
 
 ```
 jakartamission/
@@ -53,7 +53,7 @@ jakartamission/
 └── pom.xml
 ```
 
-## 🚀 Installation et Déploiement
+## Installation et Déploiement
 
 ### Prérequis
 
@@ -83,7 +83,7 @@ jakartamission/
    http://localhost:8080/jakartamission/
    ```
 
-## 🎨 Thème Visuel
+## Thème Visuel
 
 L'application utilise les couleurs du drapeau indonésien (rouge et blanc) pour créer une identité visuelle cohérente :
 - Gradients rouge/blanc dans les headers
@@ -91,7 +91,7 @@ L'application utilise les couleurs du drapeau indonésien (rouge et blanc) pour 
 - Police Lobster pour un style unique et chaleureux
 - Images provenant d'Unsplash pour illustrer l'Indonésie
 
-## 📝 Beans Principaux
+## Beans Principaux
 
 ### LieuBean
 Bean de session qui gère l'ajout et l'affichage des lieux touristiques.
@@ -104,14 +104,14 @@ Gère la navigation entre les différentes pages de l'application.
 ### WelcomeBean
 Bean de démonstration pour la page d'accueil.
 
-## 🌐 Pages Disponibles
+## Pages Disponibles
 
 - `/index.xhtml` - Page de bienvenue avec le drapeau indonésien
 - `/home.xhtml` - Page d'accueil principale avec navigation
 - `/pages/lieu.xhtml` - Gestion des lieux (ajout et visualisation)
 - `/pages/a_propos.xhtml` - Informations sur l'Indonésie
 
-## 🤝 Contribution
+## Contribution
 
 Les contributions sont les bienvenues ! N'hésitez pas à :
 1. Fork le projet
@@ -120,16 +120,16 @@ Les contributions sont les bienvenues ! N'hésitez pas à :
 4. Pousser vers la branche
 5. Ouvrir une Pull Request
 
-## 📄 Licence
+## Licence
 
 Ce projet est développé dans un cadre éducatif.
 
-## 👤 Auteur
+## Auteur
 
 **Gael Nsabua**
 - GitHub: [@GaelNsabua](https://github.com/GaelNsabua)
 
-## 🙏 Remerciements
+## Remerciements
 
 - Images fournies par [Unsplash](https://unsplash.com)
 - Drapeau indonésien via Wikimedia Commons
