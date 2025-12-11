@@ -1,0 +1,179 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:f="jakarta.faces.core">
+    <h:head>
+        <title>À Propos - Indonésie</title>
+        
+        <!-- Tailwind CSS CDN -->
+        <script src="https://cdn.tailwindcss.com"></script>
+        
+        <!-- Google Fonts - Lobster -->
+        <link href="https://fonts.googleapis.com/css2?family=Lobster&amp;display=swap" rel="stylesheet"/>
+        
+        <style>
+            body {
+                font-family: 'Lobster', cursive;
+            }
+            .indonesia-gradient {
+                background: linear-gradient(180deg, #FF0000 0%, #FF0000 50%, #FFFFFF 50%, #FFFFFF 100%);
+            }
+        </style>
+    </h:head>
+    <h:body class="min-h-screen bg-gray-50">
+        
+        <!-- Header avec drapeau indonésien -->
+        <div class="indonesia-gradient h-20 flex items-center justify-center shadow-md">
+            <div class="text-center">
+                <h1 class="text-2xl font-bold text-white drop-shadow-lg">À Propos de l'Indonésie</h1>
+                <p class="text-gray-600 text-xs mt-1">Archipel des merveilles</p>
+            </div>
+        </div>
+        
+        <!-- Hero Section -->
+        <div class="relative h-80 mb-6 rounded-lg overflow-hidden shadow-xl">
+            <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=1400&amp;h=600&amp;fit=crop" 
+                 alt="Indonésie" 
+                 class="w-full h-full object-cover"/>
+            <div class="absolute inset-0 bg-gradient-to-r from-red-900/80 to-red-600/60 flex items-center">
+                <div class="container mx-auto px-6">
+                    <div class="max-w-2xl">
+                        <div class="flex items-center mb-3">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Flag_of_Indonesia.svg" 
+                                 alt="Drapeau Indonésie" 
+                                 class="w-12 h-8 mr-3 border border-white/50 rounded shadow-lg"/>
+                            <h2 class="text-2xl font-bold text-white">Découvrez l'Indonésie</h2>
+                        </div>
+                        <p class="text-white text-xs leading-relaxed mb-2">
+                            L'Indonésie est le plus grand archipel du monde, composé de plus de <strong>17 000 îles</strong> 
+                            situées entre l'océan Indien et l'océan Pacifique.
+                        </p>
+                        <p class="text-white/95 text-xs leading-relaxed mb-2">
+                            Avec une population de plus de <strong>270 millions d'habitants</strong>, c'est le quatrième pays 
+                            le plus peuplé au monde et possède une diversité culturelle exceptionnelle.
+                        </p>
+                        <p class="text-white/95 text-xs leading-relaxed">
+                            La capitale, <strong>Jakarta</strong>, est située sur l'île de Java, l'île la plus peuplée du monde.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Conteneur principal -->
+        <div class="container mx-auto px-4 pb-6 max-w-6xl">
+            
+            <!-- Section Culture et Patrimoine -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                
+                <!-- Carte Temple -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
+                    <img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=800&amp;h=400&amp;fit=crop" 
+                         alt="Temple Borobudur" 
+                         class="w-full h-48 object-cover"/>
+                    <div class="p-4">
+                        <h3 class="text-base font-semibold text-gray-800 mb-2">Patrimoine Mondial</h3>
+                        <p class="text-gray-600 text-xs">
+                            Le temple de <strong>Borobudur</strong> à Java est le plus grand monument bouddhiste au monde, 
+                            construit au 9ème siècle. Il est classé au patrimoine mondial de l'UNESCO.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Carte Nature -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
+                    <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800&amp;h=400&amp;fit=crop" 
+                         alt="Rizières de Bali" 
+                         class="w-full h-48 object-cover"/>
+                    <div class="p-4">
+                        <h3 class="text-base font-semibold text-gray-800 mb-2">Nature Luxuriante</h3>
+                        <p class="text-gray-600 text-xs">
+                            Les célèbres <strong>rizières en terrasses de Bali</strong> offrent des paysages à couper le souffle. 
+                            L'Indonésie est également connue pour sa biodiversité exceptionnelle.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Carte Plages -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
+                    <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&amp;h=400&amp;fit=crop" 
+                         alt="Plages indonésiennes" 
+                         class="w-full h-48 object-cover"/>
+                    <div class="p-4">
+                        <h3 class="text-base font-semibold text-gray-800 mb-2">Plages Paradisiaques</h3>
+                        <p class="text-gray-600 text-xs">
+                            Des plages de sable blanc aux eaux turquoise, l'Indonésie offre certaines des plus belles 
+                            destinations balnéaires du monde, notamment à Bali, Lombok et les îles Gili.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Carte Culture -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
+                    <img src="https://images.unsplash.com/photo-1604999333679-b86d54738315?w=800&amp;h=400&amp;fit=crop" 
+                         alt="Culture indonésienne" 
+                         class="w-full h-48 object-cover"/>
+                    <div class="p-4">
+                        <h3 class="text-base font-semibold text-gray-800 mb-2">Richesse Culturelle</h3>
+                        <p class="text-gray-600 text-xs">
+                            L'Indonésie compte plus de <strong>300 groupes ethniques</strong> et plus de 700 langues. 
+                            Les danses traditionnelles, le batik et le gamelan font partie du patrimoine culturel unique.
+                        </p>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <!-- Section Informations pratiques -->
+            <div class="bg-white rounded-lg shadow-lg p-5">
+                <h2 class="text-lg font-semibold text-gray-800 mb-3">Informations Pratiques</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-5 text-xs">
+                    <div>
+                        <h3 class="font-semibold text-gray-700 mb-2">Géographie</h3>
+                        <ul class="text-gray-600 space-y-1">
+                            <li>Capitale : Jakarta</li>
+                            <li>17 000+ îles</li>
+                            <li>1,9 million km²</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="font-semibold text-gray-700 mb-2">Population</h3>
+                        <ul class="text-gray-600 space-y-1">
+                            <li>270+ millions d'habitants</li>
+                            <li>Bahasa Indonesia (langue officielle)</li>
+                            <li>Majorité musulmane</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="font-semibold text-gray-700 mb-2">Économie</h3>
+                        <ul class="text-gray-600 space-y-1">
+                            <li>Monnaie : Roupie indonésienne (IDR)</li>
+                            <li>Agriculture et tourisme</li>
+                            <li>Ressources naturelles abondantes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bouton retour -->
+            <div class="mt-6 text-center">
+                <h:form>
+                    <h:commandButton value="← Retour à l'accueil" 
+                                     action="#{navigationController.voirAccueil()}"
+                                     class="bg-red-600 hover:bg-red-700 text-white font-medium text-sm py-2 px-6 rounded-lg transition duration-200 shadow-md hover:shadow-lg"/>
+                </h:form>
+            </div>
+            
+            <!-- Footer -->
+            <div class="mt-6 text-center text-gray-600 text-xs">
+                <p>Explorez l'Indonésie, terre de contrastes et de beautés</p>
+            </div>
+            
+        </div>
+        
+    </h:body>
+</html>

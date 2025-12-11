@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:f="jakarta.faces.core">
+    <h:head>
+        <title>Bienvenu en Indonesie</title>
+    </h:head>
+    <h:body>
+      <h:form>
+          <h3>Votre nom</h3>
+          <h:inputText value="#{welcomeBean.nom}" required="true"/>
+          <h:commandButton value="Envoyer" action="#{welcomeBean.afficher()}"/>
+      </h:form>
+        <h:outputText value="#{welcomeBean.message}"/>
+      <hr/>
+      <!-- Convertisseur de monnaie -->
+       <h:form>
+          <h2>Convertisseur de monnaie</h2>
+          <h3>Montant à convertir</h3>
+          <h:inputText value="#{welcomeBean.montant}" required="true"/>
+          <h3>De</h3>
+          <h:selectOneMenu value="#{welcomeBean.deviseSource}">
+              <f:selectItem itemValue="CDF" itemLabel="Franc Congolais"/>
+              <f:selectItem itemValue="USD" itemLabel="Dollar Américain"/>
+              <f:selectItem itemValue="IDR" itemLabel="Roupie Indonésienne"/>
+          </h:selectOneMenu>
+          <h3>Vers</h3>
+          <h:selectOneMenu value="#{welcomeBean.deviseCible}">
+              <f:selectItem itemValue="CDF" itemLabel="Franc Congolais"/>
+              <f:selectItem itemValue="USD" itemLabel="Dollar Américain"/>
+              <f:selectItem itemValue="IDR" itemLabel="Roupie Indonésienne"/>
+          </h:selectOneMenu>
+          <br/>
+          <h:commandButton value="Convertir" action="#{welcomeBean.convertir()}"/>
+          <br/>
+          <h:outputText value="#{welcomeBean.resultConversion}"/>
+       </h:form>
+    </h:body>
+</html>

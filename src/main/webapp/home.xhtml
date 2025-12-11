@@ -1,0 +1,148 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="jakarta.faces.html">
+  <h:head>
+    <title>Accueil : Découvrir l'Indonésie</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts - Lobster -->
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&amp;display=swap" rel="stylesheet"/>
+    
+    <style>
+      body {
+        font-family: 'Lobster', cursive;
+      }
+      .indonesia-gradient {
+        background: linear-gradient(180deg, #FF0000 0%, #FF0000 50%, #FFFFFF 50%, #FFFFFF 100%);
+      }
+      .card-hover {
+        transition: all 0.3s ease;
+      }
+      .card-hover:hover {
+        transform: translateY(-4px);
+      }
+    </style>
+  </h:head>
+  <h:body class="min-h-screen bg-gray-50">
+    
+    <!-- Hero Section avec drapeau -->
+    <div class="relative h-96 overflow-hidden">
+      <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=1600&amp;h=800&amp;fit=crop" 
+           alt="Indonésie" 
+           class="w-full h-full object-cover"/>
+      <div class="absolute inset-0 bg-gradient-to-b from-red-900/70 via-red-800/60 to-red-600/50">
+        <div class="container mx-auto px-4 h-full flex flex-col items-center justify-center text-center">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Flag_of_Indonesia.svg" 
+               alt="Drapeau Indonésie" 
+               class="w-20 h-14 mb-4 border-2 border-white/80 rounded shadow-2xl"/>
+          <h1 class="text-4xl md:text-5xl font-bold text-white mb-3 drop-shadow-lg">
+            Découvrez l'Indonésie
+          </h1>
+          <p class="text-white/95 text-sm md:text-base max-w-2xl mb-6">
+            Explorez les trésors cachés de l'archipel le plus vaste du monde, 
+            ses temples millénaires, ses plages paradisiaques et sa culture unique
+          </p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Navigation Cards -->
+    <div class="container mx-auto px-4 -mt-16 relative z-10 pb-12">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Card Ajouter -->
+        <div class="bg-white rounded-xl shadow-xl overflow-hidden card-hover">
+          <div class="h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=600&amp;h=400&amp;fit=crop" 
+                 alt="Ajouter un lieu" 
+                 class="w-full h-full object-cover"/>
+          </div>
+          <div class="p-5">
+            <h2 class="text-xl font-bold text-gray-800 mb-2">Ajouter un Lieu</h2>
+            <p class="text-gray-600 text-sm mb-4">
+              Partagez vos lieux préférés en Indonésie avec la communauté. 
+              Ajoutez des temples, plages, restaurants ou sites touristiques.
+            </p>
+            <h:form>
+              <h:commandButton value="Ajouter un lieu"
+                               action="#{navigationController.voirAjouter()}"
+                               class="w-full bg-red-600 hover:bg-red-700 text-white font-medium text-sm py-3 px-4 rounded-lg transition duration-200 shadow-md hover:shadow-lg"/>
+            </h:form>
+          </div>
+        </div>
+        
+        <!-- Card Visiter -->
+        <div class="bg-white rounded-xl shadow-xl overflow-hidden card-hover">
+          <div class="h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&amp;h=400&amp;fit=crop" 
+                 alt="Visiter" 
+                 class="w-full h-full object-cover"/>
+          </div>
+          <div class="p-5">
+            <h2 class="text-xl font-bold text-gray-800 mb-2">Explorer les Lieux</h2>
+            <p class="text-gray-600 text-sm mb-4">
+              Découvrez une sélection de lieux incontournables à visiter en Indonésie. 
+              De Bali à Java, explorez tous les trésors de l'archipel.
+            </p>
+            <h:form>
+              <h:commandButton value="Explorer maintenant"
+                               action="#{navigationController.voirVisiter()}"
+                               class="w-full bg-red-600 hover:bg-red-700 text-white font-medium text-sm py-3 px-4 rounded-lg transition duration-200 shadow-md hover:shadow-lg"/>
+            </h:form>
+          </div>
+        </div>
+        
+        <!-- Card À propos -->
+        <div class="bg-white rounded-xl shadow-xl overflow-hidden card-hover">
+          <div class="h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1604999333679-b86d54738315?w=600&amp;h=400&amp;fit=crop" 
+                 alt="À propos" 
+                 class="w-full h-full object-cover"/>
+          </div>
+          <div class="p-5">
+            <h2 class="text-xl font-bold text-gray-800 mb-2">À Propos</h2>
+            <p class="text-gray-600 text-sm mb-4">
+              En savoir plus sur l'Indonésie, son histoire, sa culture, 
+              sa géographie et toutes les informations pratiques pour votre voyage.
+            </p>
+            <h:form>
+              <h:commandButton value="En savoir plus"
+                               action="#{navigationController.voirApropos()}"
+                               class="w-full bg-red-600 hover:bg-red-700 text-white font-medium text-sm py-3 px-4 rounded-lg transition duration-200 shadow-md hover:shadow-lg"/>
+            </h:form>
+          </div>
+        </div>
+        
+      </div>
+      
+      <!-- Section informations -->
+      <div class="mt-12 bg-white rounded-xl shadow-lg p-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+          <div class="p-4">
+            <div class="text-3xl font-bold text-red-600 mb-2">17 000+</div>
+            <p class="text-gray-600 text-sm">Îles à découvrir</p>
+          </div>
+          <div class="p-4">
+            <div class="text-3xl font-bold text-red-600 mb-2">270M+</div>
+            <p class="text-gray-600 text-sm">Habitants chaleureux</p>
+          </div>
+          <div class="p-4">
+            <div class="text-3xl font-bold text-red-600 mb-2">300+</div>
+            <p class="text-gray-600 text-sm">Groupes ethniques</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6 mt-12">
+      <div class="container mx-auto px-4 text-center">
+        <p class="text-sm">Explorez l'Indonésie - Archipel des merveilles</p>
+        <p class="text-xs text-gray-400 mt-2">© 2025 - Découvrez la beauté de l'Indonésie</p>
+      </div>
+    </footer>
+    
+  </h:body>
+</html>
