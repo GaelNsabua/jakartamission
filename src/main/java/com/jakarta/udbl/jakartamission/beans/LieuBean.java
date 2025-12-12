@@ -1,9 +1,11 @@
 package com.jakarta.udbl.jakartamission.beans;
 
-import jakarta.enterprise.context.SessionScoped;
+import com.jakarta.udbl.jakartamission.business.LieuEntrepriseBean;
+import com.jakarta.udbl.jakartamission.entities.Lieu;
+import jakarta.ejb.EJB;
+import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Named;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -11,19 +13,19 @@ import java.util.List;
  * 
  * @author gaelm
  */
-@SessionScoped
+@RequestScoped
 @Named
 public class LieuBean implements Serializable {
+    
+    @EJB
+    private LieuEntrepriseBean lieuEntrepriseBean;
     
     private String nom;
     private String description;
     private Double latitude;
     private Double longitude;
     
-    private List<Lieu> lieux;
-    
     public LieuBean() {
-        this.lieux = new ArrayList<>();
     }
     
     /**
@@ -35,8 +37,8 @@ public class LieuBean implements Serializable {
             description != null && !description.trim().isEmpty() &&
             latitude != null && longitude != null) {
             
-            Lieu lieu = new Lieu(nom, description, latitude, longitude);
-            lieux.add(lieu);
+            Lieu lieu = new Lieu(nom, description, longitude, latitude);
+            lieuEntrepriseBean.creer(lieu);
             
             // Réinitialiser le formulaire
             this.nom = null;
@@ -46,6 +48,14 @@ public class LieuBean implements Serializable {
         }
         
         return null; // Reste sur la même page
+    }
+    
+    /**
+     * Récupère la liste de tous les lieux
+     * @return Liste des lieux
+     */
+    public List<Lieu> getLieux() {
+        return lieuEntrepriseBean.lister();
     }
     
     // Getters et Setters
@@ -79,65 +89,5 @@ public class LieuBean implements Serializable {
 
     public void setLongitude(Double longitude) {
         this.longitude = longitude;
-    }
-
-    public List<Lieu> getLieux() {
-        return lieux;
-    }
-
-    public void setLieux(List<Lieu> lieux) {
-        this.lieux = lieux;
-    }
-    
-    /**
-     * Classe interne représentant un lieu
-     */
-    public static class Lieu implements Serializable {
-        private String nom;
-        private String description;
-        private Double latitude;
-        private Double longitude;
-        
-        public Lieu() {
-        }
-        
-        public Lieu(String nom, String description, Double latitude, Double longitude) {
-            this.nom = nom;
-            this.description = description;
-            this.latitude = latitude;
-            this.longitude = longitude;
-        }
-
-        public String getNom() {
-            return nom;
-        }
-
-        public void setNom(String nom) {
-            this.nom = nom;
-        }
-
-        public String getDescription() {
-            return description;
-        }
-
-        public void setDescription(String description) {
-            this.description = description;
-        }
-
-        public Double getLatitude() {
-            return latitude;
-        }
-
-        public void setLatitude(Double latitude) {
-            this.latitude = latitude;
-        }
-
-        public Double getLongitude() {
-            return longitude;
-        }
-
-        public void setLongitude(Double longitude) {
-            this.longitude = longitude;
-        }
     }
 }
