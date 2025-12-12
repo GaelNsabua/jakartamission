@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="jakarta.faces.html"
-      xmlns:f="jakarta.faces.core">
+      xmlns:f="jakarta.faces.core"
+      xmlns:ui="jakarta.faces.facelets">
     <h:head>
         <title>Explorer les Lieux - Indonésie</title>
         
@@ -56,17 +57,14 @@
             </div>
             
             <!-- Grille des lieux -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                
-                <!-- Liste des lieux avec DataTable -->
-                <h:dataTable value="#{lieuBean.lieux}" var="lieu" 
-                             class="contents"
-                             rendered="#{not empty lieuBean.lieux}">
-                    <h:column>
+            <h:panelGroup rendered="#{not empty lieuBean.lieux}">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Liste des lieux avec ui:repeat -->
+                    <ui:repeat value="#{lieuBean.lieux}" var="lieu">
                         <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
                             <!-- Image du lieu -->
                             <div class="relative h-48 overflow-hidden">
-                                <img src="#{request.contextPath}/images/default-lieu.jpg" 
+                                <img src="#{request.contextPath}/images/indonesia.jpg" 
                                      alt="#{lieu.nom}" 
                                      class="w-full h-full object-cover"/>
                                 <div class="absolute top-2 right-2 bg-red-600 text-white text-xs px-2 py-1 rounded-full shadow-lg">
@@ -90,10 +88,9 @@
                                 </div>
                             </div>
                         </div>
-                    </h:column>
-                </h:dataTable>
-                
-            </div>
+                    </ui:repeat>
+                </div>
+            </h:panelGroup>
             
             <!-- Message si aucun lieu -->
             <div class="col-span-full" rendered="#{empty lieuBean.lieux}">
