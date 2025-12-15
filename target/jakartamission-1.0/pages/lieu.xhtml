@@ -78,7 +78,7 @@
                                 <p class="text-gray-600 text-xs mb-3 line-clamp-3">#{lieu.description}</p>
                                 
                                 <!-- Coordonnées GPS -->
-                                <div class="border-t border-gray-200 pt-3 mt-3">
+                                <div class="border-t border-gray-200 pt-3 mt-3 mb-3">
                                     <div class="flex items-center text-xs text-gray-500">
                                         <svg class="w-4 h-4 mr-1 text-red-600" fill="currentColor" viewBox="0 0 20 20">
                                             <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
@@ -86,6 +86,20 @@
                                         <span class="font-medium">#{lieu.latitude}, #{lieu.longitude}</span>
                                     </div>
                                 </div>
+                                
+                                <!-- Boutons d'action -->
+                                <h:form class="flex gap-2">
+                                    <h:commandButton value="Modifier" 
+                                                     action="#{lieuBean.preparerEdition(lieu)}"
+                                                     class="flex-1 bg-blue-600 hover:bg-blue-700 text-white text-xs py-2 px-3 rounded-lg transition duration-200 shadow-sm hover:shadow-md"/>
+                                    
+                                    <h:commandButton value="Supprimer" 
+                                                     action="#{lieuBean.supprimer(lieu.id)}"
+                                                     class="flex-1 bg-red-600 hover:bg-red-700 text-white text-xs py-2 px-3 rounded-lg transition duration-200 shadow-sm hover:shadow-md"
+                                                     onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce lieu ?');">
+                                        <f:ajax execute="@form" render="@all"/>
+                                    </h:commandButton>
+                                </h:form>
                             </div>
                         </div>
                     </ui:repeat>
@@ -93,7 +107,7 @@
             </h:panelGroup>
             
             <!-- Message si aucun lieu -->
-            <div class="col-span-full" rendered="#{empty lieuBean.lieux}">
+            <h:panelGroup rendered="#{empty lieuBean.lieux}">
                 <div class="bg-white rounded-lg shadow-lg p-12 text-center">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Flag_of_Indonesia.svg" 
                          alt="Drapeau Indonésie" 
@@ -106,7 +120,7 @@
                                          class="bg-red-600 hover:bg-red-700 text-white font-medium text-sm py-2 px-6 rounded-lg transition duration-200 shadow-md hover:shadow-lg"/>
                     </h:form>
                 </div>
-            </div>
+            </h:panelGroup>
             
         </div>
         

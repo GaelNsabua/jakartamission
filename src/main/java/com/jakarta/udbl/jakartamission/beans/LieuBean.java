@@ -3,7 +3,7 @@ package com.jakarta.udbl.jakartamission.beans;
 import com.jakarta.udbl.jakartamission.business.LieuEntrepriseBean;
 import com.jakarta.udbl.jakartamission.entities.Lieu;
 import jakarta.ejb.EJB;
-import jakarta.enterprise.context.RequestScoped;
+import jakarta.enterprise.context.SessionScoped;
 import jakarta.inject.Named;
 import java.io.Serializable;
 import java.util.List;
@@ -13,7 +13,7 @@ import java.util.List;
  * 
  * @author gaelm
  */
-@RequestScoped
+@SessionScoped
 @Named
 public class LieuBean implements Serializable {
     
@@ -24,6 +24,9 @@ public class LieuBean implements Serializable {
     private String description;
     private Double latitude;
     private Double longitude;
+    
+    private Integer lieuIdEnEdition;
+    private boolean modeEdition = false;
     
     public LieuBean() {
     }
@@ -41,13 +44,93 @@ public class LieuBean implements Serializable {
             lieuEntrepriseBean.creer(lieu);
             
             // Réinitialiser le formulaire
-            this.nom = null;
-            this.description = null;
-            this.latitude = null;
-            this.longitude = null;
+            reinitialiserFormulaire();
         }
         
         return null; // Reste sur la même page
+    }
+    
+    /**
+     * Sauvegarde un lieu (création ou modification selon le mode)
+     * @return Navigation
+     */
+    public String sauvegarder() {
+        if (modeEdition) {
+            return modifier();
+        } else {
+            return enregistrer();
+        }
+    }
+    
+    /**
+     * Prépare l'édition d'un lieu
+     * @param lieu Le lieu à éditer
+     * @return Navigation vers la page d'ajout
+     */
+    public String preparerEdition(Lieu lieu) {
+        this.lieuIdEnEdition = lieu.getId();
+        this.nom = lieu.getNom();
+        this.description = lieu.getDescription();
+        this.latitude = lieu.getLatitude();
+        this.longitude = lieu.getLongitude();
+        this.modeEdition = true;
+        return "/pages/ajouter?faces-redirect=true";
+    }
+    
+    /**
+     * Modifie un lieu existant
+     * @return Navigation
+     */
+    public String modifier() {
+        if (lieuIdEnEdition != null && nom != null && !nom.trim().isEmpty() && 
+            description != null && !description.trim().isEmpty() &&
+            latitude != null && longitude != null) {
+            
+            Lieu lieu = lieuEntrepriseBean.trouverParId(lieuIdEnEdition);
+            if (lieu != null) {
+                lieu.setNom(nom);
+                lieu.setDescription(description);
+                lieu.setLatitude(latitude);
+                lieu.setLongitude(longitude);
+                lieuEntrepriseBean.modifier(lieu);
+            }
+            
+            reinitialiserFormulaire();
+        }
+        
+        return null;
+    }
+    
+    /**
+     * Supprime un lieu
+     * @param id L'identifiant du lieu à supprimer
+     * @return Navigation
+     */
+    public String supprimer(int id) {
+        lieuEntrepriseBean.supprimer(id);
+        reinitialiserFormulaire();
+        return null;
+    }
+    
+    /**
+     * Annule l'édition en cours
+     * @return Navigation
+     */
+    public String annulerEdition() {
+        reinitialiserFormulaire();
+        return null;
+    }
+    
+    /**
+     * Réinitialise le formulaire
+     */
+    private void reinitialiserFormulaire() {
+        this.nom = null;
+        this.description = null;
+        this.latitude = null;
+        this.longitude = null;
+        this.lieuIdEnEdition = null;
+        this.modeEdition = false;
     }
     
     /**
@@ -89,5 +172,21 @@ public class LieuBean implements Serializable {
 
     public void setLongitude(Double longitude) {
         this.longitude = longitude;
+    }
+
+    public Integer getLieuIdEnEdition() {
+        return lieuIdEnEdition;
+    }
+
+    public void setLieuIdEnEdition(Integer lieuIdEnEdition) {
+        this.lieuIdEnEdition = lieuIdEnEdition;
+    }
+
+    public boolean isModeEdition() {
+        return modeEdition;
+    }
+
+    public void setModeEdition(boolean modeEdition) {
+        this.modeEdition = modeEdition;
     }
 }
