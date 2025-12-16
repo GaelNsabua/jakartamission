@@ -1,44 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
-    <head>
-        <title>Bienvenue en Indonésie</title>
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:f="http://xmlns.jcp.org/jsf/core"
+>
+  <head>
+    <title>Bienvenue en Indonésie</title>
 
-        <!-- Intégration de Tailwind CSS -->
-        <script src="https://cdn.tailwindcss.com"></script>
-        
-        <!-- Google Fonts - Lobster -->
-        <link href="https://fonts.googleapis.com/css2?family=Lobster&amp;display=swap" rel="stylesheet"/>
-        
-        <style>
-            body {
-                font-family: 'Lobster', cursive;
-            }
-        </style>
+    <!-- Intégration de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
-    </head>
-    <body class="flex justify-center items-center min-h-screen bg-gray-100">
+    <!-- Google Fonts - Lobster -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lobster&amp;display=swap"
+      rel="stylesheet"
+    />
 
-        <div class="max-w-sm w-full text-center p-6 shadow-lg bg-white rounded-lg">
-            <!-- Drapeau de l'Indonésie avec bordure -->
-            <img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Flag_of_Indonesia.svg" 
-                 alt="Drapeau Indonésie" 
-                 class="w-36 mx-auto mb-4 border border-gray-400 rounded" />
+    <style>
+      body {
+        font-family: "Lobster", cursive;
+      }
+    </style>
+  </head>
+  <body class="flex justify-center items-center min-h-screen bg-gray-100">
+    <div class="max-w-sm w-full text-center p-6 shadow-lg bg-white rounded-lg">
+      <!-- Drapeau de l'Indonésie avec bordure -->
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Flag_of_Indonesia.svg"
+        alt="Drapeau Indonésie"
+        class="w-36 mx-auto mb-4 border border-gray-400 rounded"
+      />
 
-            <h4 class="text-xl font-semibold mb-4">Bienvenu en Indonesie</h4>
+      <h4 class="text-xl font-semibold mb-4">Bienvenu en Indonesie</h4>
 
-            <h:form>
+      <h:form>
+        <!-- Bouton Commencer -->
+        <h:commandButton
+          value="Découvrir"
+          action="home"
+          styleClass="bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded w-full transition cursor-pointer"
+        />
+      </h:form>
 
-
-                <!-- Bouton Commencer -->
-                <h:commandButton value="Découvrir" action="home" 
-                                 styleClass="bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded w-full transition"/>
-            </h:form>
-
-
-        </div>
-
-    </body>
+      <h:form>
+        <!-- Bouton Créer un compte -->
+        <h:commandButton
+          value="Créer un compte"
+          action="#{navigationController.voirCreerCompte}"
+          styleClass="mt-4 bg-white hover:bg-gray-100 text-gray-800 font-medium py-2 px-4 rounded w-full border border-gray-300 transition cursor-pointer"
+        />
+      </h:form>
+    </div>
+  </body>
 </html>

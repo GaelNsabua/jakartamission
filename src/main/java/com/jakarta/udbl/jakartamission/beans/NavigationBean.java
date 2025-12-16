@@ -50,4 +50,12 @@ public class NavigationBean {
             e.printStackTrace();
         }
     }
+
+    public void voirCreerCompte() {
+        try {
+            FacesContext.getCurrentInstance().getExternalContext().redirect("pages/ajouter_utilisateur.xhtml");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
