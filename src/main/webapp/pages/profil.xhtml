@@ -1,0 +1,200 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:f="jakarta.faces.core">
+    <h:head>
+        <title>Mon Profil - Indonésie</title>
+        
+        <!-- Tailwind CSS CDN -->
+        <script src="https://cdn.tailwindcss.com"></script>
+        
+        <!-- Google Fonts - Lobster -->
+        <link href="https://fonts.googleapis.com/css2?family=Lobster&amp;display=swap" rel="stylesheet"/>
+        
+        <style>
+            body {
+                font-family: 'Lobster', cursive;
+            }
+            .indonesia-gradient {
+                background: linear-gradient(180deg, #FF0000 0%, #FF0000 60%, #FFFFFF 40%, #FFFFFF 100%);
+            }
+        </style>
+    </h:head>
+    <h:body class="min-h-screen bg-gray-50">
+        
+        <!-- Header avec drapeau indonésien -->
+        <div class="indonesia-gradient h-20 flex items-center justify-center shadow-md">
+            <div class="text-center">
+                <h1 class="text-2xl font-bold text-white drop-shadow-lg">Mon Profil</h1>
+                <p class="text-gray-600 text-xs mt-1">Gérez vos informations personnelles</p>
+            </div>
+        </div>
+        
+        <!-- Conteneur principal -->
+        <div class="container mx-auto px-4 py-8 max-w-4xl">
+            
+            <!-- Messages globaux -->
+            <div class="mb-6">
+                <h:messages globalOnly="true" 
+                            errorClass="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg mb-4 text-sm"
+                            infoClass="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-lg mb-4 text-sm"/>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                
+                <!-- Colonne gauche - Informations du profil -->
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <div class="flex items-center mb-6 pb-4 border-b border-gray-200">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Flag_of_Indonesia.svg" 
+                             alt="Drapeau Indonésie" 
+                             class="w-10 h-7 mr-3 border border-gray-300 rounded shadow-sm"/>
+                        <h2 class="text-xl font-semibold text-gray-800">Informations du profil</h2>
+                    </div>
+                    
+                    <h:form>
+                        <div class="space-y-5">
+                            
+                            <!-- Nom d'utilisateur (read-only) -->
+                            <div>
+                                <h:outputLabel for="username" value="Nom d'utilisateur" 
+                                             class="block text-sm font-medium text-gray-700 mb-2"/>
+                                <h:inputText id="username"
+                                           value="#{profilBean.username}"
+                                           readonly="true"
+                                           class="w-full px-4 py-2 text-sm border border-gray-300 rounded-lg bg-gray-100 cursor-not-allowed"
+                                           styleClass="bg-gray-100"/>
+                            </div>
+
+                            <!-- Email (read-only) -->
+                            <div>
+                                <h:outputLabel for="email" value="Adresse email" 
+                                             class="block text-sm font-medium text-gray-700 mb-2"/>
+                                <h:inputText id="email"
+                                           value="#{profilBean.email}"
+                                           readonly="true"
+                                           class="w-full px-4 py-2 text-sm border border-gray-300 rounded-lg bg-gray-100 cursor-not-allowed"/>
+                            </div>
+
+                            <!-- Description (modifiable) -->
+                            <div>
+                                <h:outputLabel for="description" value="Description" 
+                                             class="block text-sm font-medium text-gray-700 mb-2"/>
+                                <h:inputTextarea id="description"
+                                               value="#{profilBean.description}"
+                                               rows="4"
+                                               class="w-full px-4 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition resize-none"
+                                               placeholder="Quelques mots sur vous..."/>
+                            </div>
+
+                            <!-- Bouton de mise à jour -->
+                            <div class="pt-4">
+                                <h:commandButton value="Mettre à jour le profil"
+                                               action="#{profilBean.modifierProfil}"
+                                               class="w-full bg-red-600 hover:bg-red-700 text-white font-medium py-3 px-6 rounded-lg transition duration-200 shadow-md hover:shadow-lg text-sm"/>
+                            </div>
+                            
+                        </div>
+                    </h:form>
+                </div>
+
+                <!-- Colonne droite - Modification du mot de passe -->
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <div class="flex items-center mb-6 pb-4 border-b border-gray-200">
+                        <svg class="w-6 h-6 text-red-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                        </svg>
+                        <h2 class="text-xl font-semibold text-gray-800">Modifier le mot de passe</h2>
+                    </div>
+                    
+                    <h:form>
+                        <div class="space-y-5">
+                            
+                            <!-- Ancien mot de passe -->
+                            <div>
+                                <h:outputLabel for="ancienPassword" value="Ancien mot de passe" 
+                                             class="block text-sm font-medium text-gray-700 mb-2"/>
+                                <h:inputSecret id="ancienPassword"
+                                             value="#{profilBean.ancienMotDePasse}"
+                                             required="true"
+                                             requiredMessage="L'ancien mot de passe est obligatoire"
+                                             class="w-full px-4 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition"/>
+                                <h:message for="ancienPassword" class="text-red-600 text-xs mt-1 block"/>
+                            </div>
+
+                            <!-- Nouveau mot de passe -->
+                            <div>
+                                <h:outputLabel for="nouveauPassword" value="Nouveau mot de passe" 
+                                             class="block text-sm font-medium text-gray-700 mb-2"/>
+                                <h:inputSecret id="nouveauPassword"
+                                             value="#{profilBean.nouveauMotDePasse}"
+                                             required="true"
+                                             requiredMessage="Le nouveau mot de passe est obligatoire"
+                                             class="w-full px-4 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition"/>
+                                <h:message for="nouveauPassword" class="text-red-600 text-xs mt-1 block"/>
+                                <p class="text-xs text-gray-500 mt-1">Au moins 6 caractères requis</p>
+                            </div>
+
+                            <!-- Confirmation nouveau mot de passe -->
+                            <div>
+                                <h:outputLabel for="confirmPassword" value="Confirmer le nouveau mot de passe" 
+                                             class="block text-sm font-medium text-gray-700 mb-2"/>
+                                <h:inputSecret id="confirmPassword"
+                                             value="#{profilBean.confirmationMotDePasse}"
+                                             required="true"
+                                             requiredMessage="La confirmation est obligatoire"
+                                             class="w-full px-4 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition"/>
+                                <h:message for="confirmPassword" class="text-red-600 text-xs mt-1 block"/>
+                            </div>
+
+                            <!-- Bouton de modification -->
+                            <div class="pt-4">
+                                <h:commandButton value="Modifier le mot de passe"
+                                               action="#{profilBean.modifierMotDePasse}"
+                                               class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition duration-200 shadow-md hover:shadow-lg text-sm"/>
+                            </div>
+                            
+                        </div>
+                    </h:form>
+                </div>
+
+            </div>
+
+            <!-- Section Déconnexion -->
+            <div class="mt-6 bg-white rounded-lg shadow-lg p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-1">Se déconnecter</h3>
+                        <p class="text-sm text-gray-600">Terminer votre session en toute sécurité</p>
+                    </div>
+                    <h:form>
+                        <h:commandButton value="Déconnexion"
+                                       action="#{profilBean.seDeconnecter}"
+                                       class="bg-gray-700 hover:bg-gray-800 text-white font-medium py-2 px-6 rounded-lg transition duration-200 shadow-md hover:shadow-lg text-sm"
+                                       onclick="return confirm('Êtes-vous sûr de vouloir vous déconnecter ?');"/>
+                    </h:form>
+                </div>
+            </div>
+
+            <!-- Bouton retour -->
+            <div class="mt-6 text-center">
+                <h:form>
+                    <h:commandButton value="← Retour" 
+                                     action="/pages/a_propos?faces-redirect=true"
+                                     immediate="true"
+                                     class="bg-white hover:bg-gray-100 text-gray-700 font-medium text-sm py-2 px-6 rounded-lg border-2 border-gray-300 transition duration-200 shadow-sm"/>
+                </h:form>
+            </div>
+            
+        </div>
+
+        <!-- Footer -->
+        <footer class="bg-gray-800 text-white py-6 mt-12">
+            <div class="container mx-auto px-4 text-center">
+                <p class="text-sm">Gérez votre profil en toute sécurité</p>
+                <p class="text-xs text-gray-400 mt-2">Vos données sont protégées</p>
+            </div>
+        </footer>
+        
+    </h:body>
+</html>

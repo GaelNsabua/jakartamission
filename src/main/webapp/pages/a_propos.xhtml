@@ -24,10 +24,31 @@
     <h:body class="min-h-screen bg-gray-50">
         
         <!-- Header avec drapeau indonésien -->
-        <div class="indonesia-gradient h-20 flex items-center justify-center shadow-md">
-            <div class="text-center">
-                <h1 class="text-2xl font-bold text-white drop-shadow-lg">À Propos de l'Indonésie</h1>
-                <p class="text-gray-600 text-xs mt-1">Archipel des merveilles</p>
+        <div class="indonesia-gradient shadow-md">
+            <div class="container mx-auto px-4 py-3">
+                <div class="flex items-center justify-between">
+                    <!-- Titre -->
+                    <div class="text-center flex-1">
+                        <h1 class="text-2xl font-bold text-white drop-shadow-lg">À Propos de l'Indonésie</h1>
+                        <p class="text-gray-600 text-xs mt-1">Archipel des merveilles</p>
+                    </div>
+                    
+                    <!-- Boutons d'action -->
+                    <div class="flex gap-2">
+                        <h:form>
+                            <h:commandButton value="Profil" 
+                                           action="/pages/profil?faces-redirect=true"
+                                           class="bg-blue-600 hover:bg-blue-700 text-white font-medium text-xs py-2 px-4 rounded-lg transition duration-200 shadow-md hover:shadow-lg cursor-pointer"/>
+                        </h:form>
+                        
+                        <h:form>
+                            <h:commandButton value="Déconnexion" 
+                                           action="#{profilBean.seDeconnecter}"
+                                           class="bg-gray-700 hover:bg-gray-800 text-white font-medium text-xs py-2 px-4 rounded-lg transition duration-200 shadow-md hover:shadow-lg cursor-pointer"
+                                           onclick="return confirm('Êtes-vous sûr de vouloir vous déconnecter ?');"/>
+                        </h:form>
+                    </div>
+                </div>
             </div>
         </div>
         

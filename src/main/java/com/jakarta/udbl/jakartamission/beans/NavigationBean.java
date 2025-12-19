@@ -53,7 +53,7 @@ public class NavigationBean {
 
     public void voirCreerCompte() {
         try {
-            FacesContext.getCurrentInstance().getExternalContext().redirect("pages/ajouter_utilisateur.xhtml");
+            FacesContext.getCurrentInstance().getExternalContext().redirect("./ajouter_utilisateur.xhtml");
         } catch (IOException e) {
             e.printStackTrace();
         }
