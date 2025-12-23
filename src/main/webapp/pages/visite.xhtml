@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:f="jakarta.faces.core">
+    <h:head>
+        <title>Visite</title>
+            <h:form id="visiteForm">
+                <h:selectOneMenu value="#{lieuBean.selectedLieu}">
+                    <f:selectItems value="#{lieuBean.lieux}" var="lieu" itemValue="#{lieu.id}" itemLabel="#{lieu.nom}"/>
+                    <f:ajax listener="#{lieuBean.updateWeatherMessage}" render="weather"/>
+                </h:selectOneMenu>
+                <!-- Affichage de la météo -->
+                <div>
+                    <h:outputText id="weather" value="#{lieuBean.weatherMessage}"/>
+                    <br/>
+                    <!-- Bouton "Visiter" -->
+                    <h:commandButton value="Visiter" class="btn btn-primary btn-visit"/>
+                </div>
+            </h:form>
+                <h:form>
+                    <h:commandButton value="Visiter" class="btn btn-primary btn-visit"/>
+                </h:form>
+            </div>
+        </div>
+    </h:body>
+</html>

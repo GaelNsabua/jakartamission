@@ -72,6 +72,21 @@
             </h:form>
           </div>
         </div>
+        <!-- Card Mes visites -->
+        <div class="mt-6">
+          <div class="bg-white rounded-xl shadow-xl overflow-hidden card-hover">
+            <div class="h-48 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=600&amp;h=400&amp;fit=crop" alt="Mes visites" class="w-full h-full object-cover"/>
+            </div>
+            <div class="p-5">
+              <h2 class="text-xl font-bold text-gray-800 mb-2">Mes visites</h2>
+              <p class="text-gray-600 text-sm mb-4">Consultez et gérez la liste de vos visites enregistrées.</p>
+                <h:form>
+                <h:commandButton value="Mes visites" action="#{navigationController.voirMesVisites}" class="w-full bg-red-600 hover:bg-red-700 text-white font-medium text-sm py-3 px-4 rounded-lg transition duration-200 shadow-md hover:shadow-lg"/>
+              </h:form>
+            </div>
+          </div>
+        </div>
         
         <!-- Card Visiter -->
         <div class="bg-white rounded-xl shadow-xl overflow-hidden card-hover">
@@ -88,7 +103,7 @@
             </p>
             <h:form>
               <h:commandButton value="Explorer maintenant"
-                               action="#{navigationController.voirVisiter()}"
+                               action="#{navigationController.voirLieux()}"
                                class="w-full bg-red-600 hover:bg-red-700 text-white font-medium text-sm py-3 px-4 rounded-lg transition duration-200 shadow-md hover:shadow-lg"/>
             </h:form>
           </div>

@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:ui="jakarta.faces.facelets">
+    <h:head>
+        <title>Mes Visites</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Lobster&amp;display=swap" rel="stylesheet"/>
+    </h:head>
+    <h:body class="min-h-screen bg-gray-50">
+        <!-- Hero Section avec drapeau (comme sur la page d'accueil) -->
+        <div class="relative h-96 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=1600&amp;h=800&amp;fit=crop" 
+                 alt="Indonésie" 
+                 class="w-full h-full object-cover"/>
+            <div class="absolute inset-0 bg-gradient-to-b from-red-900/70 via-red-800/60 to-red-600/50">
+                <div class="container mx-auto px-4 h-full flex flex-col items-center justify-center text-center">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Flag_of_Indonesia.svg" 
+                         alt="Drapeau Indonésie" 
+                         class="w-20 h-14 mb-4 border-2 border-white/80 rounded shadow-2xl"/>
+                    <h1 class="text-4xl md:text-5xl font-bold text-white mb-3 drop-shadow-lg">Mes Visites</h1>
+                    <p class="text-white/95 text-sm md:text-base max-w-2xl mb-6">Consultez vos visites enregistrées</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container mx-auto px-4 py-8 max-w-6xl">
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h2 class="text-xl font-semibold text-gray-800 mb-4">Liste des visites</h2>
+                <h:form>
+                    <div class="space-y-4">
+                        <ui:repeat value="#{visiteBean.visites}" var="v">
+                            <div class="p-4 border border-gray-200 rounded-lg">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h3 class="font-semibold text-gray-800">#{v.lieu.nom} — #{v.dateVisite}</h3>
+                                        <p class="text-xs text-gray-600">Temps: #{v.tempsPasse} min — Dépense: #{v.depense} IDR</p>
+                                        <p class="text-sm text-gray-700 mt-2">#{v.observations}</p>
+                                    </div>
+                                    <div class="flex flex-col gap-2">
+                                        <h:commandButton value="Supprimer" action="# {visiteBean.supprimer(v.id)}" onclick="return confirm('Supprimer cette visite ?');" styleClass="bg-red-600 hover:bg-red-700 text-white text-sm py-2 px-3 rounded"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </ui:repeat>
+                    </div>
+                </h:form>
+            </div>
+        </div>
+    </h:body>
+</html>

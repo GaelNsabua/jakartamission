@@ -58,6 +58,7 @@
             
             <!-- Grille des lieux -->
             <h:panelGroup rendered="#{not empty lieuBean.lieux}">
+                <!-- Approche simple : 'Visiter' redirige directement vers la page d'ajout de visite -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     <!-- Liste des lieux avec ui:repeat -->
                     <ui:repeat value="#{lieuBean.lieux}" var="lieu">
@@ -88,18 +89,28 @@
                                 </div>
                                 
                                 <!-- Boutons d'action -->
-                                <h:form class="flex gap-2">
-                                    <h:commandButton value="Modifier" 
-                                                     action="#{lieuBean.preparerEdition(lieu)}"
-                                                     class="flex-1 bg-blue-600 hover:bg-blue-700 text-white text-xs py-2 px-3 rounded-lg transition duration-200 shadow-sm hover:shadow-md"/>
-                                    
-                                    <h:commandButton value="Supprimer" 
-                                                     action="#{lieuBean.supprimer(lieu.id)}"
-                                                     class="flex-1 bg-red-600 hover:bg-red-700 text-white text-xs py-2 px-3 rounded-lg transition duration-200 shadow-sm hover:shadow-md"
-                                                     onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce lieu ?');">
-                                        <f:ajax execute="@form" render="@all"/>
-                                    </h:commandButton>
-                                </h:form>
+                                <div class="flex gap-2">
+                                    <h:form>
+                                        <h:commandButton value="Visiter" action="/pages/ajouter_visite?faces-redirect=true" class="flex-1 bg-green-600 hover:bg-green-700 text-white text-xs py-2 px-3 rounded-lg transition duration-200 shadow-sm hover:shadow-md">
+                                            <f:setPropertyActionListener target="#{lieuBean.selectedLieu}" value="#{lieu.id}" />
+                                        </h:commandButton>
+                                    </h:form>
+
+                                    <h:form>
+                                        <h:commandButton value="Modifier" 
+                                                         action="#{lieuBean.preparerEdition(lieu)}"
+                                                         class="flex-1 bg-blue-600 hover:bg-blue-700 text-white text-xs py-2 px-3 rounded-lg transition duration-200 shadow-sm hover:shadow-md"/>
+                                    </h:form>
+
+                                    <h:form>
+                                        <h:commandButton value="Supprimer" 
+                                                         action="#{lieuBean.supprimer(lieu.id)}"
+                                                         class="flex-1 bg-red-600 hover:bg-red-700 text-white text-xs py-2 px-3 rounded-lg transition duration-200 shadow-sm hover:shadow-md"
+                                                         onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce lieu ?');">
+                                            <f:ajax execute="@form" render="@all"/>
+                                        </h:commandButton>
+                                    </h:form>
+                                </div>
                             </div>
                         </div>
                     </ui:repeat>

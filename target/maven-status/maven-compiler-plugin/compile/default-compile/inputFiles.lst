@@ -1,3 +1,4 @@
+C:\Users\gaelm\Documents\NetBeansProjects\jakartamission\src\main\java\com\jakarta\udbl\jakartamission\beans\VisiteBean.java
 C:\Users\gaelm\Documents\NetBeansProjects\jakartamission\src\main\java\com\jakarta\udbl\jakartamission\resources\JakartaEE10Resource.java
 C:\Users\gaelm\Documents\NetBeansProjects\jakartamission\src\main\java\com\jakarta\udbl\jakartamission\entities\Utilisateur.java
 C:\Users\gaelm\Documents\NetBeansProjects\jakartamission\src\main\java\com\jakarta\udbl\jakartamission\business\SessionControlFilter.java
@@ -5,7 +6,10 @@ C:\Users\gaelm\Documents\NetBeansProjects\jakartamission\src\main\java\com\jakar
 C:\Users\gaelm\Documents\NetBeansProjects\jakartamission\src\main\java\com\jakarta\udbl\jakartamission\business\UtilisateurEntrepriseBean.java
 C:\Users\gaelm\Documents\NetBeansProjects\jakartamission\src\main\java\com\jakarta\udbl\jakartamission\business\SessionManager.java
 C:\Users\gaelm\Documents\NetBeansProjects\jakartamission\src\main\java\com\jakarta\udbl\jakartamission\entities\Lieu.java
+C:\Users\gaelm\Documents\NetBeansProjects\jakartamission\src\main\java\com\jakarta\udbl\jakartamission\business\VisiteEntrepriseBean.java
+C:\Users\gaelm\Documents\NetBeansProjects\jakartamission\src\main\java\com\jakarta\udbl\jakartamission\entities\Visite.java
 C:\Users\gaelm\Documents\NetBeansProjects\jakartamission\src\main\java\com\jakarta\udbl\jakartamission\beans\WelcomeBean.java
+C:\Users\gaelm\Documents\NetBeansProjects\jakartamission\src\main\java\com\jakarta\udbl\jakartamission\converters\LocalDateConverter.java
 C:\Users\gaelm\Documents\NetBeansProjects\jakartamission\src\main\java\com\jakarta\udbl\jakartamission\business\LieuEntrepriseBean.java
 C:\Users\gaelm\Documents\NetBeansProjects\jakartamission\src\main\java\com\jakarta\udbl\jakartamission\beans\LieuBean.java
 C:\Users\gaelm\Documents\NetBeansProjects\jakartamission\src\main\java\com\jakarta\udbl\jakartamission\beans\NavigationBean.java

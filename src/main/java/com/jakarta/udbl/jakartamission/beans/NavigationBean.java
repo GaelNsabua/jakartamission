@@ -35,9 +35,17 @@ public class NavigationBean {
         }
     }
 
-    public void voirVisiter() {
+    public void voirLieux() {
         try {
             FacesContext.getCurrentInstance().getExternalContext().redirect("pages/lieu.xhtml");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void voirVisiter() {
+        try {
+            FacesContext.getCurrentInstance().getExternalContext().redirect("pages/visite.xhtml");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -54,6 +62,14 @@ public class NavigationBean {
     public void voirCreerCompte() {
         try {
             FacesContext.getCurrentInstance().getExternalContext().redirect("./ajouter_utilisateur.xhtml");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void voirMesVisites() {
+        try {
+            FacesContext.getCurrentInstance().getExternalContext().redirect("pages/visites.xhtml");
         } catch (IOException e) {
             e.printStackTrace();
         }
